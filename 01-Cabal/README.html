@@ -1,0 +1,27 @@
+Voit buildata projektin sanomalla:<br>
+<code>> cabal build</code>
+<p>
+tai suorittaa projektin executablen:<br>
+<code>> cabal run</code><br>
+<code>> cabal run tervehdys</code>
+<p>
+tai ajaa testit<br>
+<code>> cabal test</code>
+<p>
+tai configuroida flägien kanssa<br>
+<code>> cabal configure -fWithOpenGL</code>
+<p>
+tai käynnistää REPL:n projektin riippuvuuksilla:<br>
+<code>>  cabal repl</code><br>
+mikä käynnistää projektin ensimmäisen "osan", oli se kirjasto tai executable.<br>
+Voit antaa nimen perässä jos haluat valita:<br>
+<code>> cabal repl tervehdys</code><br>
+GHCJS-projektissa tämä itseasiassa käynnistää REPL:n joka pyörii selaimessa!
+<p>
+Buildaamisen jälkeen kaikki executablet ovat ajettavissa:<br>
+<code>
+>  dist/build/moikkahdus/moikkahdus<br>
+>> "Moikka kaikille!"<br>
+> dist/build/tervehdys/tervehdys<br>  
+>> "Hello Digital Ocean!"<br>
+</code>

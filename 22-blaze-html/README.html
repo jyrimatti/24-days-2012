@@ -1,0 +1,8 @@
+Template-kielten ongelma on tyypittämättömyys: viittaukset dataan ovat "löysiä" ja happanevat aina.
+<p>
+Markupin kirjoittaminen staattisen tyypityksen kielellä ratkaisee ongelman.
+<p>
+Ehkä "komponentit jotka generoivat HTML:nsä" ovat abstraktiotasona liian korkealla, ja parempi olisi tehdä HTML:n kirjoittamisesta riittävän vaivatonta jotta sen voi tehdä käsin?
+<p>
+Huomaa että Blaze ei takaa että kirjoittamasi HTML on <b>validia</b>, sillä se ei voi rajoittaa esim että "HTML-elementin alla saa olla vain body tai head", tai että "body:llä saa olla vain attribuutit x, y ja z". Nostamalla elementtien rakentajat tyyppitasolle ja käyttämällä esim TypeFamilyjä ja Constraintteja saa tällaisen rajoittavamman kirjaston kyllä tehtyä, tosin en tiedä maksaako se enää vaivaa...
+

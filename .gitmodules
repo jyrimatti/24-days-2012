@@ -1,0 +1,3 @@
+[submodule "haskell-dev-env"]
+	path = haskell-dev-env
+	url = ./haskell-dev-env

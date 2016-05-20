@@ -1,0 +1,38 @@
+Tiivistäen:
+<p>
+Älä käytä <i>String</i>iä tai <i>ByteString</i>iä tekstinkäsittelyyn. Käytä <i>Text</i>iä.
+<p>
+<i>String</i> on "liian yksinkertainen" ja on standardikirjastossa ilmeisesti "pedagogisista syistä".<br>
+<i>ByteString</i> ei ole merkkijonoihin, vaan mielivaltaisen tavudatan käsittelyyn.
+<p>
+Älä missään tapauksessa käytä <i>Data.ByteString.Char8</i> tai <i>Data.ByteString.Lazy.Char8</i> sillä ne
+toimivat vain 8-bit-ASCII-tekstille hukaten esim UTF8:sta kaikki yli 8-bitin datan: "All Chars will be truncated to 8 bits."
+<p>
+Saattaa olla ettei edes <i>Text</i> tee tekstinkäsittelystä virheetöntä, sillä intuitiivisesti merkkijono <b>ei</b> ole lista merkkejä (character, unicode-code-point) vaan likimain lista <i>grafeemi-klustereita</i>.
+<br>
+Ymmärtääkseni siis kaikki Text-instanssit eivät välttämättä ole laillisia unicode-merkkijonoja.
+<p>
+<code><pre>
+*Main Data.Text T> T.length $ T.pack "käki"
+5
+-- 5? Eikö siinä ole 4 merkkiä?
+
+*Main Data.Text T> T.length $ T.pack "käki"
+4
+-- mitä tapahtui?
+
+-- Ensimmäisessä on <i>ä</i> muodostettu unicoden "combining diaeresis" avulla, eli "a + umplaut". Jälkimmäisessä on käytetty tavallista <i>ä</i>-kirjainta joka löytyy erikseen unicodesta.
+
+-- Sopivilla normalisoinneilla voidaan muuttaa unicode-merkkijonoja erilaisiksi.
+*Main Data.Text T> import qualified Data.Text.ICU as I
+*Main Data.Text T I> T.length $ T.pack "käki"
+5
+*Main Data.Text T I> T.length $ I.normalize I.NFD $ T.pack "käki"
+5
+*Main Data.Text T I> T.length $ I.normalize I.NFKD $ T.pack "käki"
+5
+*Main Data.Text T I> T.length $ I.normalize I.NFC $ T.pack "käki"
+4
+*Main Data.Text T I> T.length $ I.normalize I.NFKC $ T.pack "käki"
+4
+</pre></code>

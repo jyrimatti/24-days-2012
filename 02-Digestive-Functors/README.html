@@ -1,0 +1,9 @@
+Ehditty toteuttaa lomakkeen määritys ja siihen kaksi rajapintaa, Aeson ja Snap.
+<p>
+Testaa Jsonia, ehjällä datalla tai puuttuvilla arvoilla:<br>
+<code>> cabal run json '{"firstName": "etu", "lastName": "suku", "salary": "42", "name": "IT"}'<br>
+<code>> cabal run json '{"firstName": "etu", "lastName": "suku", "salary": "42"}'
+<p>
+Testaa Snap:ia:<br>
+<code>> cabal run snap</code><br>
+<code>> curl --data 'firstName=etu&lastName=suku&salary=42&name=IT' http://localhost:8000</code>

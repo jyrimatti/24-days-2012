@@ -1,0 +1,18 @@
+Antaa ehdotuksia yksittäiselle Haskell-tiedostolle.<br>
+Melko rajoittunut, ei "tunne" muita moduuleja kuin base-kirjaston.<br>
+<code>> hlint src/main.hs</code>
+<p>
+Vihjeet saa HTML-raporttina. Mahdollisesti hyödyllinen esim CI:n osana (vertaa Sonar).<br>
+<code>> hlint --report src/Main.hs</code>
+<p>
+Vihjeet saa ulos myös json:na, jolloin niitä on helppo käyttää toisesta työkalusta käsin.<br>
+<code>> hlint --json src/Main.hs</code><br>
+<p>
+Työkalu osaa toisen työkalun avustuksella korjata kaikki virheet tai yksittäisen vihjeen koodiin automaattisesti.<br>
+Voi tehdä korjauksen in-place, mutta voi myös tulostaa korjatun stdouttiin, joten työkalu on helppo integroida editoreihin.<br>
+Refactorin asennus pitää tehdä "käsin" koska tämänhetkisessä unstable-nixpkgs:ssäkään se ei vielä ole mukana.<br>
+<code>> ./asenna-refactor.sh</code><br>
+<code>> hlint --refactor --refactor-options="--pos 5,8" src/Main.hs</code>
+<p>
+Voit myös ajaa HLinttiä omilla hinteillä:<br>
+<code>> hlint -w 'warning = 69 ==> 42' src/Main.hs</code>

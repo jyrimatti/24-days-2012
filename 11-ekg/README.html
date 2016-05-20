@@ -1,0 +1,12 @@
+Lisäsin cabal-tiedostoon seuraavan rivin jotta sai GC-statistiikat näkyviin:<br>
+<code>GHC-Options: -with-rtsopts=-T</code>
+<p>
+Selaimeen saa helposti mukaan omiakin käyriä.
+<p>
+Mutta koska tuo selain-UI on vain pikkukilke, niin arvot saa pihalle myös JSON:na jotta niitä voi seurata millä tahansa työkalulla.<br>
+<p>
+Käynnistä server pyörimään yhteen shelliin:<br>
+<code>> cabal run notify</code><br>
+ja lisäile lahjoja toisesta shellistä:<br>
+<code>> cabal run present "leegoja"</code><br>
+ja näet UI:sta miten notifikaatiot lisääntyvät.

@@ -1,0 +1,11 @@
+optparse-applicative on aika näppärä.<br>
+Komentoriviparametrien käsittelyn pystyy tekemään helposti, erotellen tietorakenteet, parserit ja itse toiminnallisuuden toisistaan.<br>
+Tukee mm. tyyppimuunnoksia (read), vapaavalintaisuutta, argumentit, lyhyet/pitkät valinnat, help-tekstit, command-hierarkia...
+<p>
+En toteuttanut kaikkia valintoja, mutta kokeile ajaa vaikkapa:<br>
+<code>> cabal run -- greet Solita</code><br>
+<p>
+Help-tekstit saa helposti hierarkisesti eri commandeille. Kokeile esim:<br>
+<code>> cabal run -- --help</code><br>
+<code>> cabal run -- greet --help</code><br>
+<code>> cabal run -- haistatus --help</code><br>
